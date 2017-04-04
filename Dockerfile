@@ -33,6 +33,7 @@ RUN apt-get -yqq update && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
     wget ${SPARK_BINARY_DOWNLOAD_URL} && tar -zxvf ${SPARK_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     cd /usr/local/ && \
+    ln -s ${SBT_BINARY_ARCHIVE_NAME} sbt && \
     ln -s ${SCALA_BINARY_ARCHIVE_NAME} scala && \
     ln -s ${SPARK_BINARY_ARCHIVE_NAME} spark && \
     cp spark/conf/log4j.properties.template spark/conf/log4j.properties && \
