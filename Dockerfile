@@ -50,5 +50,6 @@ WORKDIR /root
 # Spark master’s web UI on 8080.
 # Spark worker web UI on 8081.
 EXPOSE 4040 8080 8081
-VOLUME ~/.ivy2:/root/.ivy2 ~/.sbt:/root/.sbt
+VOLUME ~/.sbt:/root/.sbt
+VOLUME ~/.ivy2:/root/.ivy2
 CMD ["/bin/bash"]
