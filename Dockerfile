@@ -39,7 +39,7 @@ RUN apt-get -yqq update && \
     cp spark/conf/log4j.properties.template spark/conf/log4j.properties && \
     sed -i -e s/WARN/ERROR/g spark/conf/log4j.properties && \
     sed -i -e s/INFO/ERROR/g spark/conf/log4j.properties && \
-    mkdir .sbt
+    mkdir .sbt && \
     mkdir .ivy2
 # We will be running our Spark jobs as `root` user.
 USER root
