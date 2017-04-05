@@ -44,7 +44,8 @@ USER root
 
 # Working directory is set to the home folder of `root` user.
 WORKDIR /root
-
+ADD .sbt /root/.sbt
+ADD .ivy2 /root/ivy2
 # Expose ports for monitoring.
 # SparkContext web UI on 4040 -- only available for the duration of the application.
 # Spark master’s web UI on 8080.
