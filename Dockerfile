@@ -30,7 +30,7 @@ RUN apt-get -yqq update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
-    echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list && \
+    echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.4.list && \
     apt-get update && \
     apt-get install -y mongodb-org-server=3.0.4 mongodb-org=3.0.4  mongodb-org-shell=3.0.4 mongodb-org-mongos=3.0.4 mongodb-org-tools=3.0.4 && \
     mkdir -p /data/db && \
