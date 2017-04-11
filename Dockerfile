@@ -29,6 +29,11 @@ RUN apt-get -yqq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 && \
+    apt-get install -y --no-install-recommends software-properties-common && \
+    echo "deb http://repo.mongodb.org/apt/ubuntu $(cat /etc/lsb-release | grep DISTRIB_CODENAME | cut -d= -f2)/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list && \
+    mkdir -p /data/db && \
+    apt-get -yqq update && apt-get install -y mongodb-org && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
     wget ${SPARK_BINARY_DOWNLOAD_URL} && tar -zxvf ${SPARK_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
@@ -49,6 +54,5 @@ WORKDIR /root
 # SparkContext web UI on 4040 -- only available for the duration of the application.
 # Spark master’s web UI on 8080.
 # Spark worker web UI on 8081.
-EXPOSE 4040 8080 8081
-VOLUME /opt/temp/:/root
+EXPOSE 4040 8080 8081 27017 
 CMD ["/bin/bash"]
