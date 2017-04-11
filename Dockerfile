@@ -29,10 +29,10 @@ RUN apt-get -yqq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 && \
-    echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.4.list && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+    echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | sudo tee /etc/apt/sources.list.d/mongodb.list
     apt-get -yqq update && \
-    apt-get install -y mongodb-org=3.4.3 mongodb-org-server=3.4.3 mongodb-org-shell=3.4.3 mongodb-org-> mongos=3.4.3 mongodb-org-tools=3.4.3 && \
+    apt-get install -y mongodb-org && \
     mkdir -p /data/db && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
