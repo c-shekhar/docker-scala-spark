@@ -33,6 +33,7 @@ RUN apt-get -yqq update && \
     echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list && \
     apt-get update && \
     apt-get install -y mongodb-org-server=3.0.4 mongodb-org=3.0.4  mongodb-org-shell=3.0.4 mongodb-org-mongos=3.0.4 mongodb-org-tools=3.0.4 && \
+    mkdir -p /data/db && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
     wget ${SPARK_BINARY_DOWNLOAD_URL} && tar -zxvf ${SPARK_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
