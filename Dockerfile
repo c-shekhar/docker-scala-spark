@@ -30,8 +30,7 @@ RUN apt-get -yqq update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 && \
-    apt-get install -y --no-install-recommends software-properties-common && \
-    echo "deb http://repo.mongodb.org/apt/ubuntu $(cat /etc/lsb-release | grep DISTRIB_CODENAME | cut -d= -f2)/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list && \
+    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list && \    
     mkdir -p /data/db && \
     apt-get -yqq update && apt-get install -y mongodb-org && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
