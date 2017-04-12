@@ -38,6 +38,9 @@ RUN apt-get -yqq update && \
     # echo "deb http://repo.mongodb.org/apt/ubuntu $(cat /etc/lsb-release | grep DISTRIB_CODENAME | cut -d= -f2)/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list && \
     # apt-get install -y mongodb-org-server=3.0.4 mongodb-org=3.0.4  mongodb-org-shell=3.0.4 mongodb-org-mongos=3.0.4 mongodb-org-tools=3.0.4 && \
     # apt-get update && apt-get install -y mongodb-org && \
+    wget "http://archive.ubuntu.com/ubuntu/pool/universe/m/mongodb/mongodb_2.6.10-0ubuntu1_i386.deb" && \
+    apt-get -y update && \
+    apt-get -y install mongodb && \
     mkdir -p /data/db && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
