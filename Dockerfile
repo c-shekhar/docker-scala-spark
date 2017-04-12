@@ -1,4 +1,4 @@
-http://archive.ubuntu.com/ubuntu/pool/universe/m/mongodb/mongodb_2.6.10-0ubuntu1_i386.debFROM openjdk:8
+FROM openjdk:8
 
 MAINTAINER c-shekhar
 
