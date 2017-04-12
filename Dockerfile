@@ -22,7 +22,8 @@ ARG SPARK_BINARY_DOWNLOAD_URL=http://d3kbcqa49mib13.cloudfront.net/${SPARK_BINAR
 ENV SCALA_HOME  /usr/local/scala
 ENV SBT_HOME    /usr/local/sbt
 ENV SPARK_HOME  /usr/local/spark
-ENV PATH        $JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
+ENV MONGO_HOME  /usr/local/mongodb-linux-x86_64-amazon-3.0.4
+ENV PATH        $MONGO_HOME/bin:$JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 
 # Download, uncompress and move all the required packages and libraries to their corresponding directories in /usr/local/ folder.
 RUN apt-get -yqq update && \
@@ -33,7 +34,7 @@ RUN apt-get -yqq update && \
     # apt-get -y update && \
     # apt-get -y install mongodb && \
     wget "downloads.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.0.4.tgz" && tar -zxvf mongodb-linux-x86_64-amazon-3.0.4.tgz -C /usr/local/ && \
-    export PATH=mongodb-linux-x86_64-amazon-3.0.4/bin:$PATH && \
+    # export PATH=mongodb-linux-x86_64-amazon-3.0.4/bin:$PATH && \
     mkdir -p /data/db && \
     # service mongodb start && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
