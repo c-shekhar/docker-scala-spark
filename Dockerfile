@@ -22,7 +22,7 @@ ARG SPARK_BINARY_DOWNLOAD_URL=http://d3kbcqa49mib13.cloudfront.net/${SPARK_BINAR
 ENV SCALA_HOME  /usr/local/scala
 ENV SBT_HOME    /usr/local/sbt
 ENV SPARK_HOME  /usr/local/spark
-ENV MONGO_HOME  /usr/local/mongodb-linux-x86_64-amazon-3.4.3
+ENV MONGO_HOME  /usr/local/mongodb-linux-x86_64-amazon-3.0.4
 ENV PATH        $MONGO_HOME/bin:$JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 
 # Download, uncompress and move all the required packages and libraries to their corresponding directories in /usr/local/ folder.
