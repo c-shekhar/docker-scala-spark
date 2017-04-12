@@ -33,10 +33,14 @@ RUN apt-get -yqq update && \
     # wget "http://archive.ubuntu.com/ubuntu/pool/universe/m/mongodb/mongodb_2.6.10-0ubuntu1_i386.deb" && \
     # apt-get -y update && \
     # apt-get -y install mongodb && \
-    wget "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.4.3.tgz" && tar -zxvf mongodb-linux-x86_64-amazon-3.4.3.tgz -C /usr/local/ && \
     # export PATH=mongodb-linux-x86_64-amazon-3.0.4/bin:$PATH && \
+    wget "downloads.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.0.4.tgz" && tar -zxvf mongodb-linux-x86_64-amazon-3.0.4.tgz -C /usr/local/ && \
     mkdir -p /data/db && \
-    # service mongodb start && \
+    apt-get -y update && \
+    apt-get -y install libssl1.0.0 libssl-dev && \
+    cd /lib/x86_64-linux-gnu && \
+    ln -s libssl.so.1.0.0 libssl.so.10 && \
+    ln -s libcrypto.so.1.0.0 libcrypto.so.10 && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
     wget ${SPARK_BINARY_DOWNLOAD_URL} && tar -zxvf ${SPARK_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
