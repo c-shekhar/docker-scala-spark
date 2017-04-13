@@ -39,8 +39,10 @@ RUN apt-get -yqq update && \
     apt-get -y update && \
     apt-get -y install libssl1.0.0 libssl-dev && \
     cd /lib/x86_64-linux-gnu && \
-    ln -s libssl.so.1.0.0 libssl.so.10 && \
-    ln -s libcrypto.so.1.0.0 libcrypto.so.10 && \
+    # ln -s libssl.so.1.0.0 libssl.so.10 && \
+    # ln -s libcrypto.so.1.0.0 libcrypto.so.10 && \
+    ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10 && \
+    ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10 && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
     wget ${SPARK_BINARY_DOWNLOAD_URL} && tar -zxvf ${SPARK_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
