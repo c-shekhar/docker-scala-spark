@@ -34,7 +34,7 @@ RUN apt-get -yqq update && \
     # apt-get -y update && \
     # apt-get -y install mongodb && \
     # export PATH=mongodb-linux-x86_64-amazon-3.0.4/bin:$PATH && \
-    wget "linux/mongodb-linux-x86_64-ubuntu1404-3.0.4.tgz" && tar -zxvf mongodb-linux-x86_64-ubuntu1404-3.0.4.tgz -C /usr/local/ && \
+    wget "downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1404-3.0.4.tgz" && tar -zxvf mongodb-linux-x86_64-ubuntu1404-3.0.4.tgz -C /usr/local/ && \
     mkdir -p /data/db && \
     apt-get -y update && \
     apt-get -y install libssl1.0.0 libssl-dev && \
