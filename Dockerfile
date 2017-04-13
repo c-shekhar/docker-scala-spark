@@ -22,7 +22,7 @@ ARG SPARK_BINARY_DOWNLOAD_URL=http://d3kbcqa49mib13.cloudfront.net/${SPARK_BINAR
 ENV SCALA_HOME  /usr/local/scala
 ENV SBT_HOME    /usr/local/sbt
 ENV SPARK_HOME  /usr/local/spark
-ENV MONGO_HOME  /usr/local/mongodb-linux-x86_64-amazon-3.0.4
+ENV MONGO_HOME  /usr/local/mongodb-linux-x86_64-ubuntu1404-3.0.4
 ENV PATH        $MONGO_HOME/bin:$JAVA_HOME/bin:$SCALA_HOME/bin:$SBT_HOME/bin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 
 # Download, uncompress and move all the required packages and libraries to their corresponding directories in /usr/local/ folder.
@@ -34,15 +34,15 @@ RUN apt-get -yqq update && \
     # apt-get -y update && \
     # apt-get -y install mongodb && \
     # export PATH=mongodb-linux-x86_64-amazon-3.0.4/bin:$PATH && \
-    wget "downloads.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.0.4.tgz" && tar -zxvf mongodb-linux-x86_64-amazon-3.0.4.tgz -C /usr/local/ && \
+    wget "linux/mongodb-linux-x86_64-ubuntu1404-3.0.4.tgz" && tar -zxvf mongodb-linux-x86_64-ubuntu1404-3.0.4.tgz -C /usr/local/ && \
     mkdir -p /data/db && \
     apt-get -y update && \
     apt-get -y install libssl1.0.0 libssl-dev && \
     cd /lib/x86_64-linux-gnu && \
-    # ln -s libssl.so.1.0.0 libssl.so.10 && \
-    # ln -s libcrypto.so.1.0.0 libcrypto.so.10 && \
-    ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10 && \
-    ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10 && \
+    ln -s libssl.so.1.0.0 libssl.so.10 && \
+    ln -s libcrypto.so.1.0.0 libcrypto.so.10 && \
+    # ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 /usr/lib/libssl.so.10 && \
+    # ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.10 && \
     wget ${SCALA_BINARY_DOWNLOAD_URL} && tar -zxvf ${SCALA_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
     wget ${SBT_BINARY_DOWNLOAD_URL} && tar -zxvf ${SBT_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/  && \
     wget ${SPARK_BINARY_DOWNLOAD_URL} && tar -zxvf ${SPARK_BINARY_ARCHIVE_NAME}.tgz -C /usr/local/ && \
